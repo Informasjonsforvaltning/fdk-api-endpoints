@@ -1,0 +1,108 @@
+openapi: 3.0.2
+
+info:
+  title: FDK API endpoints
+  description: FDK API specifications
+  version: '1.0'
+  termsOfService: 'https://fellesdatakatalog.digdir.no/about'
+  contact:
+    name: Digitaliseringsdirektoratet
+    url: 'https://fellesdatakatalog.digdir.no'
+    email: fellesdatakatalog@digdir.no
+  license:
+    name: License of API
+    url: 'http://data.norge.no/nlod/no/2.0'
+
+externalDocs:
+  description: Dokumentasjon på Informasjonsforvaltning GitHub
+  url: https://informasjonsforvaltning.github.io
+
+tags:
+  - name: endpoints
+    description: FDK API endpoints
+
+paths:
+  /endpoints:
+    get:
+      tags:
+        - endpoints
+      summary: Queries the API catalog for API specifications
+      description: Returns API endpoints
+      operationId: searchAPICatalog
+      parameters:
+        - name: activeOnly
+          in: query
+          description: Filters active (not expired and not removed)
+          required: false
+          schema:
+            type: boolean
+            default: true
+            example: false
+        - name: serviceType
+          in: query
+          description: Filters by service type
+          required: false
+          schema:
+            type: string
+        - name: orgNos
+          in: query
+          description: Filters by publisher organisation number. Multiple values separated with commas.
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: environment
+          in: query
+          description: Filters on environment ("test", "production"). Multiple values separated with commas.
+          required: true
+          schema:
+            type: string
+            enum:
+              - production
+              - test
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Endpoint"
+
+components:
+  schemas:
+    Endpoint:
+      type: object
+      description: FDK API endpoint
+      properties:
+        apiRef:
+          type: string
+          description: URL to the the api-description in API-catalogue
+        orgNo:
+          type: string
+          description: The organization number to the publisher of the API
+        serviceType:
+          type: string
+          description: The standard (\"type of service\") the API conforms to
+        url:
+          type: string
+          description: The Server Object url of the API
+        activationDate:
+          type: string
+          format: date
+          description: The date-time from which the endpoint is active
+        expirationDate:
+          type: string
+          format: date
+          description: The date-time to which the endpoint is active
+        transportProfile:
+          type: string
+          description: Transport method
+        environment:
+          type: string
+          enum:
+            - production
+            - test
+          description: The environment the url points to
