@@ -2,6 +2,7 @@ package no.fdk.endpoints.controller
 
 import no.fdk.endpoints.model.Endpoint
 import no.fdk.endpoints.model.Environment
+import no.fdk.endpoints.service.EndpointsService
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -17,7 +18,7 @@ private val logger = LoggerFactory.getLogger(EndpointsController::class.java)
 @CrossOrigin
 @RestController
 @RequestMapping(value = ["/endpoints"])
-class EndpointsController {
+class EndpointsController(private val service: EndpointsService) {
 
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
     fun searchAPICatalog(
@@ -26,7 +27,7 @@ class EndpointsController {
         @RequestParam(value = "serviceType", required = false) serviceType: String?,
         @RequestParam(value = "orgNos", required = false) orgNos: List<String>?
     ): ResponseEntity<List<Endpoint>> {
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+        return ResponseEntity(service.searchForDataServiceEndpoints(environment, activeOnly, serviceType, orgNos), HttpStatus.OK)
     }
 
 }
