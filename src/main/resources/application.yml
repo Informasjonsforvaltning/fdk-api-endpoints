@@ -6,13 +6,13 @@ logging:
   level.no: ${LOG_LEVEL:DEBUG}
   level.org.springframework: WARN
   level.org.springframework.web: WARN
+application:
+  dataServiceCatalogsUri: ${FDK_DATASERVICE_HARVESTER_URI:https://dataservices.staging.fellesdatakatalog.digdir.no}/catalogs
 server.port: 8080
 
 ---
 spring:
-  profiles: develop
-
----
-spring:
   profiles: contract-test
+application:
+  dataServiceCatalogsUri: http://localhost:5000/catalogs
 server.port: 5050

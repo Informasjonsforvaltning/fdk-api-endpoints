@@ -1,0 +1,110 @@
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
+<https://dataservices.staging.fellesdatakatalog.digdir.no/dataservices/435fdcd6-99df-3760-bce1-dee633e88c5e>
+        a                  dcat:CatalogRecord ;
+        dct:identifier     "435fdcd6-99df-3760-bce1-dee633e88c5e" ;
+        dct:isPartOf       <https://dataservices.staging.fellesdatakatalog.digdir.no/catalogs/d6199127-8835-33e1-9108-233cd81e92f9> ;
+        dct:issued         "2020-08-31T11:46:33.336Z"^^xsd:dateTime ;
+        dct:modified       "2020-08-31T11:46:33.336Z"^^xsd:dateTime ;
+        foaf:primaryTopic  <https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/7> .
+
+<https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/7>
+        a                         dcat:DataService ;
+        dct:description           "Exposes a basic service which provides information related to the organization catalogue in the National Data Directory"@nb ;
+        dct:title                 "National Data Directory Organization Catalogue"@nb ;
+        dcat:contactPoint         [ a                          vcard:Organization ;
+                                    vcard:hasEmail             <mailto:fellesdatakatalog@brreg.no> ;
+                                    vcard:hasOrganizationName  "Brønnøysundregistrene"@nb ;
+                                    vcard:hasURL               <https://fellesdatakatalog.brreg.no>
+                                  ] ;
+        dcat:endpointDescription  <https://raw.githubusercontent.com/Informasjonsforvaltning/organization-catalogue/master/src/main/resources/specification/organization-catalogue.yaml> ;
+        dcat:endpointURL          <https://fellesdatakatalog.brreg.no> .
+
+<https://dataservices.staging.fellesdatakatalog.digdir.no/catalogs/d6199127-8835-33e1-9108-233cd81e92f9>
+        a                  dcat:CatalogRecord ;
+        dct:identifier     "d6199127-8835-33e1-9108-233cd81e92f9" ;
+        dct:issued         "2020-08-31T11:46:33.336Z"^^xsd:dateTime ;
+        dct:modified       "2020-08-31T11:46:33.336Z"^^xsd:dateTime ;
+        foaf:primaryTopic  <https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/catalogs/2> .
+
+<https://dataservices.staging.fellesdatakatalog.digdir.no/dataservices/979bf6ce-77f6-3cf9-8763-e1585df7b263>
+        a                  dcat:CatalogRecord ;
+        dct:identifier     "979bf6ce-77f6-3cf9-8763-e1585df7b263" ;
+        dct:isPartOf       <https://dataservices.staging.fellesdatakatalog.digdir.no/catalogs/d6199127-8835-33e1-9108-233cd81e92f9> ;
+        dct:issued         "2020-08-31T11:46:33.336Z"^^xsd:dateTime ;
+        dct:modified       "2020-08-31T11:46:33.336Z"^^xsd:dateTime ;
+        foaf:primaryTopic  <https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/4> .
+
+<https://dataservices.staging.fellesdatakatalog.digdir.no/dataservices/95543ca5-2fef-3496-8963-cd04f5eac629>
+        a                  dcat:CatalogRecord ;
+        dct:identifier     "95543ca5-2fef-3496-8963-cd04f5eac629" ;
+        dct:isPartOf       <https://dataservices.staging.fellesdatakatalog.digdir.no/catalogs/d6199127-8835-33e1-9108-233cd81e92f9> ;
+        dct:issued         "2020-08-31T11:46:33.336Z"^^xsd:dateTime ;
+        dct:modified       "2020-08-31T11:46:33.336Z"^^xsd:dateTime ;
+        foaf:primaryTopic  <https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/3> .
+
+<https://dataservices.staging.fellesdatakatalog.digdir.no/dataservices/560f70fd-4617-31a3-93cc-3a234cbd2375>
+        a                  dcat:CatalogRecord ;
+        dct:identifier     "560f70fd-4617-31a3-93cc-3a234cbd2375" ;
+        dct:isPartOf       <https://dataservices.staging.fellesdatakatalog.digdir.no/catalogs/d6199127-8835-33e1-9108-233cd81e92f9> ;
+        dct:issued         "2020-08-31T11:46:33.336Z"^^xsd:dateTime ;
+        dct:modified       "2020-08-31T11:46:33.336Z"^^xsd:dateTime ;
+        foaf:primaryTopic  <https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/6> .
+
+<https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/5>
+        a                         dcat:DataService ;
+        dct:description           "Tilgjengeliggjør begreper fra Begrepskatalog"@nb ;
+        dct:title                 "Begrepskatalog API"@nb ;
+        dcat:contactPoint         [ a                          vcard:Organization ;
+                                    vcard:hasEmail             <mailto:fellesdatakatalog@brreg.no> ;
+                                    vcard:hasOrganizationName  "Brønnøysundregistrene"@nb ;
+                                    vcard:hasURL               <https://fellesdatakatalog.brreg.no>
+                                  ] ;
+        dcat:endpointDescription  <https://raw.githubusercontent.com/Informasjonsforvaltning/concept-catalogue/master/src/main/resources/static/ConceptRegistrationAPI.yaml> ;
+        dcat:endpointURL          <https://begrepskatalog.fellesdatakatalog.brreg.no/api> .
+
+<https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/3>
+        a                         dcat:DataService ;
+        dct:description           "Provides a basic search api against the National Information Model Directory of Norway"@nb ;
+        dct:title                 "National Information Model Directory Search API"@nb ;
+        dcat:contactPoint         [ a                          vcard:Organization ;
+                                    vcard:hasEmail             <mailto:fellesdatakatalog@brreg.no> ;
+                                    vcard:hasOrganizationName  "Brønnøysundregistrene"@nb ;
+                                    vcard:hasURL               <https://fellesdatakatalog.brreg.no>
+                                  ] ;
+        dcat:endpointDescription  <https://raw.githubusercontent.com/Informasjonsforvaltning/fdk-informationmodel-harvester/master/src/main/resources/specification/specification.yaml> ;
+        dcat:endpointURL          <https://fellesdatakatalog.brreg.no/api/informationmodels> .
+
+<https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/catalogs/2>
+        a              dcat:Catalog ;
+        dct:publisher  <https://organization-catalogue.fellesdatakatalog.brreg.no/organizations/991825827> ;
+        dct:title      "Dataservicekatalog2 for Digitaliseringsdirektoratet"@nb ;
+        dcat:service   <https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/3> , <https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/4> , <https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/6> , <https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/5> , <https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/7> .
+
+<https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/6>
+        a                         dcat:DataService ;
+        dct:description           "Tilgjengeliggjør begreper fra en begrepskatalog ihht SKOS-AP-NO"@nb ;
+        dct:title                 "FDK sin begrepssamling"@nb ;
+        dcat:contactPoint         [ a                          vcard:Organization ;
+                                    vcard:hasEmail             <mailto:fellesdatakatalog@brreg.no> ;
+                                    vcard:hasOrganizationName  "Brønnøysundregistrene"@nb ;
+                                    vcard:hasURL               <https://fellesdatakatalog.brreg.no>
+                                  ] ;
+        dcat:endpointDescription  <https://raw.githubusercontent.com/Informasjonsforvaltning/concept-catalogue/master/src/main/resources/static/skos-ap-no.yaml> ;
+        dcat:endpointURL          <https://registrering-begrep-api.fellesdatakatalog.brreg.no/> .
+
+<https://dataservices.staging.fellesdatakatalog.digdir.no/dataservices/5a4697c0-464d-3d7b-8638-333389631d3c>
+        a                  dcat:CatalogRecord ;
+        dct:identifier     "5a4697c0-464d-3d7b-8638-333389631d3c" ;
+        dct:isPartOf       <https://dataservices.staging.fellesdatakatalog.digdir.no/catalogs/d6199127-8835-33e1-9108-233cd81e92f9> ;
+        dct:issued         "2020-08-31T11:46:33.336Z"^^xsd:dateTime ;
+        dct:modified       "2020-08-31T11:46:33.336Z"^^xsd:dateTime ;
+        foaf:primaryTopic  <https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/5> .
+
+<https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/4>
+        a                         dcat:DataService ;
+        dcat:endpointDescription  <https://raw.githubusercontent.com/Informasjonsforvaltning/fdk-api-harvester/master/src/main/resources/specification/fdk-api-harvester.yaml> .

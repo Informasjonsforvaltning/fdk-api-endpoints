@@ -10,7 +10,7 @@ import java.time.LocalDate
 class EndpointsService(private val adapter: DataServiceHarvesterAdapter) {
 
     fun searchForDataServiceEndpoints(environment: Environment, activeOnly: Boolean, serviceType: String?, orgNos: List<String>?): List<Endpoint> {
-        // TODO: get data services from harvester
+        val dataServices = adapter.getDataServices()
         // TODO: map data services to endpoints
         val endpoints: List<Endpoint> = emptyList()
 
