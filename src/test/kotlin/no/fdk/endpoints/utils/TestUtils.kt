@@ -5,10 +5,10 @@ import java.io.BufferedReader
 import java.net.HttpURLConnection
 import java.net.URL
 
-fun apiGet(path: String, headers: Map<String,String>): Map<String,Any> {
+fun apiGet(path: String, headers: Map<String,String>, port: Int): Map<String,Any> {
 
     return try {
-        val connection = URL("http://localhost:$API_TEST_PORT$path").openConnection() as HttpURLConnection
+        val connection = URL("http://localhost:$port$path").openConnection() as HttpURLConnection
         headers.forEach { connection.setRequestProperty(it.key, it.value) }
         connection.connect()
 

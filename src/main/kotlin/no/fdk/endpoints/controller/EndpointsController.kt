@@ -22,12 +22,17 @@ class EndpointsController(private val service: EndpointsService) {
 
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
     fun searchAPICatalog(
-        @RequestParam(value = "environment", required = true) environment: Environment,
+        @RequestParam(value = "environment", required = true) environment: String,
         @RequestParam(value = "activeOnly", required = false, defaultValue = "true") activeOnly: Boolean,
         @RequestParam(value = "serviceType", required = false) serviceType: String?,
         @RequestParam(value = "orgNos", required = false) orgNos: List<String>?
-    ): ResponseEntity<List<Endpoint>> {
-        return ResponseEntity(service.searchForDataServiceEndpoints(environment, activeOnly, serviceType, orgNos), HttpStatus.OK)
-    }
+    ): ResponseEntity<List<Endpoint>> =
+        try {
+            val env = Environment.valueOf(environment.toUpperCase())
+            val endpoints = service.searchForDataServiceEndpoints(env, serviceType, orgNos)
+            ResponseEntity(endpoints, HttpStatus.OK)
+        } catch (envError: IllegalArgumentException) {
+            ResponseEntity.badRequest().build()
+        }
 
 }

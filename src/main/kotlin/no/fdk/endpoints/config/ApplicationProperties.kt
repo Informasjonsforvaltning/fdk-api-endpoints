@@ -6,5 +6,6 @@ import org.springframework.boot.context.properties.ConstructorBinding
 @ConstructorBinding
 @ConfigurationProperties("application")
 data class ApplicationProperties(
-    val dataServiceCatalogsUri: String
+    val dataServiceCatalogsUri: String,
+    val namespace: String
 )
