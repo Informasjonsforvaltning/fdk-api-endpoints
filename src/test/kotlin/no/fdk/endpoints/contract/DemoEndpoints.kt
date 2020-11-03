@@ -36,7 +36,7 @@ class DemoEndpoints : ApiTestContext() {
             val expected = listOf(TEST_0, TEST_1, TEST_2)
             val result: List<Endpoint> = jacksonObjectMapper().readValue(rsp["body"] as String)
 
-            assertEquals(expected, result)
+            assertEquals(expected.sortedBy { it.apiRef }, result.sortedBy { it.apiRef })
         }
 
         @Test
@@ -58,7 +58,7 @@ class DemoEndpoints : ApiTestContext() {
             val expected = listOf(TEST_0, TEST_1)
             val result: List<Endpoint> = jacksonObjectMapper().readValue(rsp["body"] as String)
 
-            assertEquals(expected, result)
+            assertEquals(expected.sortedBy { it.apiRef }, result.sortedBy { it.apiRef })
         }
 
         @Test
@@ -69,7 +69,7 @@ class DemoEndpoints : ApiTestContext() {
             val expected = listOf(TEST_0, TEST_2)
             val result: List<Endpoint> = jacksonObjectMapper().readValue(rsp["body"] as String)
 
-            assertEquals(expected, result)
+            assertEquals(expected.sortedBy { it.apiRef }, result.sortedBy { it.apiRef })
         }
 
         @Test

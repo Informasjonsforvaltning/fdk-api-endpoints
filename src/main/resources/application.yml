@@ -9,6 +9,7 @@ logging:
 application:
   dataServiceCatalogsUri: ${FDK_DATASERVICE_HARVESTER_URI:https://dataservices.staging.fellesdatakatalog.digdir.no}/catalogs
   namespace: ${NAMESPACE:staging}
+  fdkDataServiceUri: ${FDK_DATASERVICE_HARVESTER_URI:https://staging.fellesdatakatalog.digdir.no}/dataservices
 server.port: 8080
 
 ---

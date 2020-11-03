@@ -3,10 +3,8 @@ package no.fdk.endpoints.mapper
 import no.fdk.endpoints.Application
 import no.fdk.endpoints.model.Endpoint
 import no.fdk.endpoints.model.Environment
-import org.apache.jena.rdf.model.ModelFactory
-import org.apache.jena.rdf.model.Property
-import org.apache.jena.rdf.model.RDFNode
-import org.apache.jena.rdf.model.Resource
+import org.apache.jena.rdf.model.*
+import org.apache.jena.sparql.vocabulary.FOAF
 import org.apache.jena.vocabulary.DCAT
 import org.apache.jena.vocabulary.DCTerms
 import org.apache.jena.vocabulary.RDF
@@ -21,7 +19,7 @@ private const val KONTOOPPLYSNINGER_URI = "https://data.norge.no/specification/k
 private const val ACCOUNT_DETAILS_STRING_VALUE = "Kontoopplysninger"
 private const val TRANSPORT_PROFILE = "eOppslag"
 
-fun mapDataServicesRDFToEndpoints(rdfData: String, environment: Environment): List<Endpoint> {
+fun mapDataServicesRDFToEndpoints(rdfData: String, environment: Environment, fdkDataServiceURI: String): List<Endpoint> {
     val model = ModelFactory.createDefaultModel()
 
     try {
@@ -36,7 +34,7 @@ fun mapDataServicesRDFToEndpoints(rdfData: String, environment: Environment): Li
     model.listResourcesWithProperty(RDF.type, DCAT.DataService)
         ?.forEach {
             endpoints.add(Endpoint(
-                apiRef = it.uriResourceAsString(DCAT.endpointDescription),
+                apiRef = model?.extractFDKIdentifier(it)?.let{ id -> "$fdkDataServiceURI/$id" },
                 orgNo = it.publisherId(),
                 serviceType = it.serviceType(),
                 url = it.uriResourceAsString(DCAT.endpointURL),
@@ -48,6 +46,13 @@ fun mapDataServicesRDFToEndpoints(rdfData: String, environment: Environment): Li
     return endpoints.toList()
 
 }
+
+private fun Model.extractFDKIdentifier(dataServiceResource: Resource): String? =
+    listResourcesWithProperty(FOAF.primaryTopic, dataServiceResource)
+        .toList()
+        .firstOrNull()
+        ?.getProperty(DCTerms.identifier)
+        ?.string
 
 private fun Resource.uriResourceAsString(property: Property): String? =
     listProperties(property)
