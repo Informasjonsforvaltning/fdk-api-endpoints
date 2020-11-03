@@ -4,7 +4,7 @@
 @prefix dcat:  <http://www.w3.org/ns/dcat#> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
-<https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/2ba006c9-60b9-41e8-9dda-0da092bf049b>
+<https://example.com/dataservices/1>
         a                         dcat:DataService ;
         dct:description           "Open API specification of Not account details"@en ;
         dct:publisher             <https://example.com/organizations/123456789> ;
@@ -13,7 +13,7 @@
         dcat:endpointURL          <https://example.com/not-account-deatils/v1> ;
         dcat:mediaType            <https://www.iana.org/assignments/media-types/application/jose> , <https://www.iana.org/assignments/media-types/application/json> .
 
-<https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/7a58640e-5972-4fc3-8f4f-1fad203f30ed>
+<https://example.com/dataservices/2>
         a                         dcat:DataService ;
         dct:conformsTo            <https://data.norge.no/specification/kontoopplysninger> ;
         dct:description           "Open API specification of No publisher"@en ;
@@ -22,7 +22,7 @@
         dcat:endpointURL          <https://example.com/no-publisher/v1> ;
         dcat:mediaType            <https://www.iana.org/assignments/media-types/application/json> , <https://www.iana.org/assignments/media-types/application/jose> .
 
-<https://dataservice-publisher.staging.fellesdatakatalog.digdir.no/dataservices/9a0c6835-3a12-4a95-b8d6-27cbebfa9951>
+<https://example.com/dataservices/3>
         a                         dcat:DataService ;
         dct:conformsTo            <https://data.norge.no/def/serviceType#ACCOUNT_DETAILS> ;
         dct:description           "Open API specification of Both account details and publisher"@en ;
@@ -31,3 +31,27 @@
         dcat:endpointDescription  <https://example.com/specs/BOTH_ACCOUNT_DETAILS_PUBLISHER.json> ;
         dcat:endpointURL          <https://example.com/both-account-details-publisher/v1> ;
         dcat:mediaType            <https://www.iana.org/assignments/media-types/application/json> , <https://www.iana.org/assignments/media-types/application/jose> .
+
+<https://dataservices.staging.fellesdatakatalog.digdir.no/dataservices/495df11b-3dc1-3aa5-b74a-ce6dbe9344cd>
+        a                  dcat:CatalogRecord ;
+        dct:identifier     "495df11b-3dc1-3aa5-b74a-ce6dbe9344cd" ;
+        dct:isPartOf       <https://dataservices.staging.fellesdatakatalog.digdir.no/catalogs/1> ;
+        dct:issued         "2020-10-28T08:37:22.773Z"^^xsd:dateTime ;
+        dct:modified       "2020-10-28T08:37:22.773Z"^^xsd:dateTime ;
+        foaf:primaryTopic  <https://example.com/dataservices/1> .
+
+<https://dataservices.staging.fellesdatakatalog.digdir.no/dataservices/afe46424-40ad-31fb-a992-8825bd40ab57>
+        a                  dcat:CatalogRecord ;
+        dct:identifier     "afe46424-40ad-31fb-a992-8825bd40ab57" ;
+        dct:isPartOf       <https://dataservices.staging.fellesdatakatalog.digdir.no/catalogs/1> ;
+        dct:issued         "2020-11-28T08:37:22.773Z"^^xsd:dateTime ;
+        dct:modified       "2020-11-28T08:37:22.773Z"^^xsd:dateTime ;
+        foaf:primaryTopic  <https://example.com/dataservices/2> .
+
+<https://dataservices.staging.fellesdatakatalog.digdir.no/dataservices/db38e789-51cc-3ff4-b55a-6ec94f6f711d>
+        a                  dcat:CatalogRecord ;
+        dct:identifier     "db38e789-51cc-3ff4-b55a-6ec94f6f711d" ;
+        dct:isPartOf       <https://dataservices.staging.fellesdatakatalog.digdir.no/catalogs/1> ;
+        dct:issued         "2020-12-28T08:37:22.773Z"^^xsd:dateTime ;
+        dct:modified       "2020-12-28T08:37:22.773Z"^^xsd:dateTime ;
+        foaf:primaryTopic  <https://example.com/dataservices/3> .

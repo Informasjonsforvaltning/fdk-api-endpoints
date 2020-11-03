@@ -23,7 +23,7 @@ class EndpointsService(
 
         return if(currentEnvironment == requestedEnvironment) {
             adapter.getDataServices()
-                ?.let { mapDataServicesRDFToEndpoints(it, currentEnvironment) }
+                ?.let { mapDataServicesRDFToEndpoints(it, currentEnvironment, applicationProperties.fdkDataServiceUri) }
                 ?.filter { it.hasCorrectServiceType(requestedServiceType) }
                 ?.filter { orgNos?.contains(it.orgNo) ?: true }
                 ?: emptyList()
