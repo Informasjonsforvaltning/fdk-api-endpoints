@@ -2,7 +2,7 @@ package no.fdk.endpoints.contract
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import no.fdk.endpoints.model.Endpoint
+import no.fdk.endpoints.model.Endpoints
 import no.fdk.endpoints.utils.*
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Tag
@@ -34,9 +34,9 @@ class StagingEndpoints : ApiTestContext() {
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
             val expected = listOf(TEST_0, TEST_1, TEST_2)
-            val result: List<Endpoint> = jacksonObjectMapper().readValue(rsp["body"] as String)
+            val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
-            assertEquals(expected.sortedBy { it.apiRef }, result.sortedBy { it.apiRef })
+            assertEquals(expected.sortedBy { it.apiRef }, result.endpoints.sortedBy { it.apiRef })
         }
 
         @Test
@@ -44,8 +44,8 @@ class StagingEndpoints : ApiTestContext() {
             val rsp = apiGet("/endpoints?environment=production", emptyMap(), port)
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
-            val expected = emptyList<Endpoint>()
-            val result: List<Endpoint> = jacksonObjectMapper().readValue(rsp["body"] as String)
+            val expected = Endpoints(emptyList())
+            val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
             assertEquals(expected, result)
         }
@@ -56,9 +56,9 @@ class StagingEndpoints : ApiTestContext() {
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
             val expected = listOf(TEST_0, TEST_1)
-            val result: List<Endpoint> = jacksonObjectMapper().readValue(rsp["body"] as String)
+            val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
-            assertEquals(expected.sortedBy { it.apiRef }, result.sortedBy { it.apiRef })
+            assertEquals(expected.sortedBy { it.apiRef }, result.endpoints.sortedBy { it.apiRef })
         }
 
         @Test
@@ -67,9 +67,9 @@ class StagingEndpoints : ApiTestContext() {
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
             val expected = listOf(TEST_0, TEST_2)
-            val result: List<Endpoint> = jacksonObjectMapper().readValue(rsp["body"] as String)
+            val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
-            assertEquals(expected.sortedBy { it.apiRef }, result.sortedBy { it.apiRef })
+            assertEquals(expected.sortedBy { it.apiRef }, result.endpoints.sortedBy { it.apiRef })
         }
 
         @Test
@@ -77,8 +77,8 @@ class StagingEndpoints : ApiTestContext() {
             val rsp = apiGet("/endpoints?environment=test&orgNos=987654321&serviceType=Kontoopplysninger", emptyMap(), port)
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
-            val expected = listOf(TEST_0)
-            val result: List<Endpoint> = jacksonObjectMapper().readValue(rsp["body"] as String)
+            val expected = Endpoints(listOf(TEST_0))
+            val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
             assertEquals(expected, result)
         }
