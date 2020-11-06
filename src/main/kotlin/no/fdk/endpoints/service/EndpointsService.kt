@@ -15,10 +15,10 @@ class EndpointsService(
 
     fun searchForDataServiceEndpoints(requestedEnvironment: Environment, requestedServiceType: String?, orgNos: List<String>?): List<Endpoint> {
         val currentEnvironment = when(applicationProperties.namespace) {
-            "production" -> Environment.PRODUCTION
-            "demo" -> Environment.TEST
-            "staging" -> Environment.TEST
-            else -> Environment.PRODUCTION
+            "production" -> Environment.production
+            "demo" -> Environment.test
+            "staging" -> Environment.test
+            else -> Environment.production
         }
 
         return if(currentEnvironment == requestedEnvironment) {

@@ -1,6 +1,6 @@
 package no.fdk.endpoints.controller
 
-import no.fdk.endpoints.model.Endpoint
+import no.fdk.endpoints.model.Endpoints
 import no.fdk.endpoints.model.Environment
 import no.fdk.endpoints.service.EndpointsService
 import org.slf4j.LoggerFactory
@@ -26,11 +26,11 @@ class EndpointsController(private val service: EndpointsService) {
         @RequestParam(value = "activeOnly", required = false, defaultValue = "true") activeOnly: Boolean,
         @RequestParam(value = "serviceType", required = false) serviceType: String?,
         @RequestParam(value = "orgNos", required = false) orgNos: List<String>?
-    ): ResponseEntity<List<Endpoint>> =
+    ): ResponseEntity<Endpoints> =
         try {
-            val env = Environment.valueOf(environment.toUpperCase())
+            val env = Environment.valueOf(environment.toLowerCase())
             val endpoints = service.searchForDataServiceEndpoints(env, serviceType, orgNos)
-            ResponseEntity(endpoints, HttpStatus.OK)
+            ResponseEntity(Endpoints(endpoints), HttpStatus.OK)
         } catch (envError: IllegalArgumentException) {
             ResponseEntity.badRequest().build()
         }
