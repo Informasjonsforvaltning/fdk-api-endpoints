@@ -44,7 +44,7 @@ class DemoEndpoints : ApiTestContext() {
             val rsp = apiGet("/endpoints?environment=production", emptyMap(), port)
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
-            val expected = Endpoints(emptyList())
+            val expected = Endpoints(emptyList(), 0)
             val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
             assertEquals(expected, result)
@@ -77,7 +77,7 @@ class DemoEndpoints : ApiTestContext() {
             val rsp = apiGet("/endpoints?environment=test&orgNos=987654321&serviceType=Kontoopplysninger", emptyMap(), port)
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
-            val expected = Endpoints(listOf(TEST_0))
+            val expected = Endpoints(listOf(TEST_0), 1)
             val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
             assertEquals(expected, result)
