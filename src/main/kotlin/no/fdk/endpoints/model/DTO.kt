@@ -1,7 +1,8 @@
 package no.fdk.endpoints.model
 
 data class Endpoints(
-    val endpoints: List<Endpoint>
+    val endpoints: List<Endpoint>,
+    val total: Int
 )
 
 data class Endpoint(

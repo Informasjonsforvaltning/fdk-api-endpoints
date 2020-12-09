@@ -33,5 +33,5 @@ class EndpointsService(
 }
 
 private fun Endpoint.hasCorrectServiceType(requestedServiceType: String?): Boolean =
-    if (requestedServiceType != null) serviceType?.toLowerCase() == requestedServiceType.toLowerCase()
+    if (requestedServiceType != null) serviceType.equals(requestedServiceType, ignoreCase = true)
     else true

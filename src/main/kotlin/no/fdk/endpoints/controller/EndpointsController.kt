@@ -30,7 +30,7 @@ class EndpointsController(private val service: EndpointsService) {
         try {
             val env = Environment.valueOf(environment.toLowerCase())
             val endpoints = service.searchForDataServiceEndpoints(env, serviceType, orgNos)
-            ResponseEntity(Endpoints(endpoints), HttpStatus.OK)
+            ResponseEntity(Endpoints(endpoints, total = endpoints.size), HttpStatus.OK)
         } catch (envError: IllegalArgumentException) {
             ResponseEntity.badRequest().build()
         }
