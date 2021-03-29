@@ -13,6 +13,10 @@ info:
     name: License of API
     url: 'http://data.norge.no/nlod/no/2.0'
 
+servers:
+  - url: 'https://data.norge.no/endpoints'
+    description: Produksjonsmiljø
+
 externalDocs:
   description: Dokumentasjon på Informasjonsforvaltning GitHub
   url: https://informasjonsforvaltning.github.io
