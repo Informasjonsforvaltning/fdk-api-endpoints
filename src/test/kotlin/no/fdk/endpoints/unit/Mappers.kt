@@ -119,6 +119,27 @@ class Mappers {
             assertEquals(null, result.first().orgNo)
         }
 
+        @Test
+        fun extractsPublisherFromCatalogWhenMissingFromDataService() {
+            val rdfData = """
+                @prefix dct:   <http://purl.org/dc/terms/> .
+                @prefix dcat:  <http://www.w3.org/ns/dcat#> .
+                @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+                
+                <https://example.com/catalog/1>
+                    a                         dcat:Catalog ;
+                    dcat:service              <https://example.com/dataservices/1> ;
+                    dct:publisher             <https://example.com/organizations/123456789> .
+
+                <https://example.com/dataservices/1>
+                    a                         dcat:DataService .
+            """.trimIndent()
+
+            val result = mapDataServicesRDFToEndpoints(rdfData, Environment.production, "https://example.com")
+
+            assertEquals("123456789", result.first().orgNo)
+        }
+
     }
 
     @Nested
