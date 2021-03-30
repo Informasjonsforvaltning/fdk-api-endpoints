@@ -35,7 +35,7 @@ fun mapDataServicesRDFToEndpoints(rdfData: String, environment: Environment, fdk
         ?.forEach {
             endpoints.add(Endpoint(
                 apiRef = model?.extractFDKIdentifier(it)?.let{ id -> "$fdkDataServiceURI/$id" },
-                orgNo = it.publisherId(),
+                orgNo = it.publisherIdFromSelfOrCatalog(),
                 serviceType = it.serviceType(),
                 url = it.uriResourceAsString(DCAT.endpointURL),
                 transportProfile = TRANSPORT_PROFILE,
@@ -60,6 +60,12 @@ private fun Resource.uriResourceAsString(property: Property): String? =
         .firstOrNull()
         ?.resource
         ?.uri
+
+private fun Resource.publisherIdFromSelfOrCatalog(): String? =
+    publisherId() ?: model.listResourcesWithProperty(DCAT.service, this)
+        .toList()
+        .let { if (it.size == 1) it.first() else null }
+        ?.publisherId()
 
 private fun Resource.publisherId(): String? =
     listProperties(DCTerms.publisher)
