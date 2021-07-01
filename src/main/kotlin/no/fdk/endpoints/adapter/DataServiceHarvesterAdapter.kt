@@ -19,7 +19,7 @@ class DataServiceHarvesterAdapter(private val applicationProperties: Application
             connection.setRequestProperty("Accept", "text/turtle")
 
             if (connection.responseCode != HttpStatus.OK.value()) {
-                logger.error(Exception("Download from harvester failed, statusCode: ${connection.responseCode}").stackTraceToString())
+                logger.error("Download from harvester failed, statusCode: ${connection.responseCode}", Exception("Download from harvester failed, statusCode: ${connection.responseCode}"))
                 null
             } else {
                 connection
@@ -29,7 +29,7 @@ class DataServiceHarvesterAdapter(private val applicationProperties: Application
             }
 
         } catch (ex: Exception) {
-            logger.error("${ex.stackTraceToString()}: Error when downloading from harvester")
+            logger.error("Error when downloading from harvester", ex)
             null
         }
 
