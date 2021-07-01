@@ -25,7 +25,7 @@ fun mapDataServicesRDFToEndpoints(rdfData: String, environment: Environment, fdk
     try {
         model.read(StringReader(rdfData), BACKUP_BASE_URI, "TURTLE")
     } catch (ex: Exception) {
-        logger.error("${ex.stackTraceToString()}: Failed to parse data services")
+        logger.error("Failed to parse data services", ex)
         return emptyList()
     }
 
