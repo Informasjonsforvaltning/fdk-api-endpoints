@@ -33,7 +33,7 @@ class DemoEndpoints : ApiTestContext() {
 
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
-            val expected = listOf(TEST_0, TEST_1, TEST_2)
+            val expected = listOf(TEST_0, TEST_1, TEST_2, TEST_3)
             val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
             assertEquals(expected.sortedBy { it.apiRef }, result.endpoints.sortedBy { it.apiRef })
@@ -55,7 +55,7 @@ class DemoEndpoints : ApiTestContext() {
             val rsp = apiGet("/endpoints?environment=test&orgNos=123456789,987654321", emptyMap(), port)
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
-            val expected = listOf(TEST_0, TEST_1)
+            val expected = listOf(TEST_0, TEST_1, TEST_3)
             val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
             assertEquals(expected.sortedBy { it.apiRef }, result.endpoints.sortedBy { it.apiRef })
@@ -66,7 +66,7 @@ class DemoEndpoints : ApiTestContext() {
             val rsp = apiGet("/endpoints?environment=test&serviceType=kontoopplysninger", emptyMap(), port)
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
-            val expected = listOf(TEST_0, TEST_2)
+            val expected = listOf(TEST_0, TEST_2, TEST_3)
             val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
             assertEquals(expected.sortedBy { it.apiRef }, result.endpoints.sortedBy { it.apiRef })
@@ -77,10 +77,10 @@ class DemoEndpoints : ApiTestContext() {
             val rsp = apiGet("/endpoints?environment=test&orgNos=987654321&serviceType=Kontoopplysninger", emptyMap(), port)
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
-            val expected = Endpoints(listOf(TEST_0), 1)
+            val expected = listOf(TEST_0, TEST_3)
             val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
-            assertEquals(expected, result)
+            assertEquals(expected.sortedBy { it.apiRef }, result.endpoints.sortedBy { it.apiRef })
         }
 
         @Test

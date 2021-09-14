@@ -43,7 +43,7 @@ class ProductionEndpoints : ApiTestContext() {
             val rsp = apiGet("/endpoints?environment=production", emptyMap(), port)
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
-            val expected = listOf(PROD_0, PROD_1, PROD_2)
+            val expected = listOf(PROD_0, PROD_1, PROD_2, PROD_3)
             val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
             assertEquals(expected.sortedBy { it.apiRef }, result.endpoints.sortedBy { it.apiRef })
@@ -54,7 +54,7 @@ class ProductionEndpoints : ApiTestContext() {
             val rsp = apiGet("/endpoints?environment=production&orgNos=123456789,987654321", emptyMap(), port)
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
-            val expected = listOf(PROD_0, PROD_1)
+            val expected = listOf(PROD_0, PROD_1, PROD_3)
             val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
             assertEquals(expected.sortedBy { it.apiRef }, result.endpoints.sortedBy { it.apiRef })
@@ -65,7 +65,7 @@ class ProductionEndpoints : ApiTestContext() {
             val rsp = apiGet("/endpoints?environment=production&serviceType=kontoopplysninger", emptyMap(), port)
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
-            val expected = listOf(PROD_0, PROD_2)
+            val expected = listOf(PROD_0, PROD_2, PROD_3)
             val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
             assertEquals(expected.sortedBy { it.apiRef }, result.endpoints.sortedBy { it.apiRef })
@@ -76,10 +76,10 @@ class ProductionEndpoints : ApiTestContext() {
             val rsp = apiGet("/endpoints?environment=production&orgNos=987654321&serviceType=Kontoopplysninger", emptyMap(), port)
             assertEquals(HttpStatus.OK.value(), rsp["status"])
 
-            val expected = Endpoints(listOf(PROD_0), 1)
+            val expected = listOf(PROD_0, PROD_3)
             val result: Endpoints = jacksonObjectMapper().readValue(rsp["body"] as String)
 
-            assertEquals(expected, result)
+            assertEquals(expected.sortedBy { it.apiRef }, result.endpoints.sortedBy { it.apiRef })
         }
 
         @Test
