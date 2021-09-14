@@ -16,7 +16,7 @@ private const val BACKUP_BASE_URI = "http://example.com/"
 
 private const val ACCOUNT_DETAILS_URI = "https://data.norge.no/def/serviceType#ACCOUNT_DETAILS"
 private const val KONTOOPPLYSNINGER_URI = "https://data.norge.no/specification/kontoopplysninger"
-private const val BITS_KONTOOPPLYSNINGER_URI = "https://bitsnorge.github.io/dsop-accounts-api/"
+private const val BITS_KONTOOPPLYSNINGER_URI = "https://bitsnorge.github.io/dsop-accounts-api"
 private const val ACCOUNT_DETAILS_STRING_VALUE = "Kontoopplysninger"
 private const val TRANSPORT_PROFILE = "eOppslag"
 
