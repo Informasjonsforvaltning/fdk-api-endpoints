@@ -34,7 +34,7 @@
 
 <https://example.com/dataservices/4>
         a                         dcat:DataService ;
-        dct:conformsTo            <https://bitsnorge.github.io/dsop-accounts-api/> ;
+        dct:conformsTo            <https://bitsnorge.github.io/dsop-accounts-api> ;
         dct:description           "Open API specification for new account details uri"@en ;
         dct:publisher             <https://example.com/organizations/987654321> ;
         dct:title                 "New account details uri"@en ;
