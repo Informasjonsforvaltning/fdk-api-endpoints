@@ -30,7 +30,7 @@
         <!--end standard properties-->
 
         <kotlin.version>1.6.10</kotlin.version>
-        <jena.version>4.3.1</jena.version>
+        <jena.version>3.16.0</jena.version>
 
         <start-class>no.fdk.endpoints.Application</start-class>
 
