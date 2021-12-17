@@ -20,7 +20,7 @@
 
     <properties>
         <!--standard properties-->
-        <java.release>1.8</java.release>
+        <java.release>15</java.release>
         <java.encoding>UTF-8</java.encoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -30,9 +30,7 @@
         <!--end standard properties-->
 
         <kotlin.version>1.6.10</kotlin.version>
-        <jena.version>3.16.0</jena.version>
-
-        <start-class>no.fdk.endpoints.Application</start-class>
+        <jena.version>4.3.1</jena.version>
 
     </properties>
 
@@ -100,7 +98,7 @@
         <dependency>
             <groupId>com.github.tomakehurst</groupId>
             <artifactId>wiremock</artifactId>
-            <version>2.27.1</version>
+            <version>2.27.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
