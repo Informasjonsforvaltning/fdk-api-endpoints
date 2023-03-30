@@ -1,12 +1,11 @@
 package no.fdk.endpoints
 
-import no.fdk.endpoints.config.ApplicationProperties
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.SpringApplication
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan
 
 @SpringBootApplication
-@EnableConfigurationProperties(ApplicationProperties::class)
+@ConfigurationPropertiesScan
 open class Application
 
 fun main(args: Array<String>) {
