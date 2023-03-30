@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.5</version>
+        <version>3.0.5</version>
         <relativePath/>
     </parent>
 
@@ -29,8 +29,8 @@
         <maven.exec.skip>false</maven.exec.skip>
         <!--end standard properties-->
 
-        <kotlin.version>1.7.20</kotlin.version>
-        <jena.version>4.6.1</jena.version>
+        <kotlin.version>1.8.20</kotlin.version>
+        <jena.version>4.7.0</jena.version>
 
     </properties>
 
@@ -53,7 +53,7 @@
         <dependency>
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
-            <version>7.2</version>
+            <version>7.3</version>
         </dependency>
 
         <!-- Kotlin dependencies -->
@@ -85,15 +85,9 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.nhaarman.mockitokotlin2</groupId>
-            <artifactId>mockito-kotlin</artifactId>
-            <version>2.2.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>com.github.tomakehurst</groupId>
             <artifactId>wiremock</artifactId>
-            <version>2.27.2</version>
+            <version>3.0.0-beta-7</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -254,7 +248,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M7</version>
+                <version>3.0.0</version>
                 <configuration>
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <argLine>${surefire.jacoco.args}</argLine>
@@ -268,7 +262,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.0.0-M7</version>
+                <version>3.0.0</version>
                 <configuration>
                     <argLine>${failsafe.jacoco.args}</argLine>
                     <groups>contract</groups>
