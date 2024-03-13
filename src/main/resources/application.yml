@@ -16,4 +16,4 @@ server.port: 8080
 spring:
   config.activate.on-profile: contract-test
 application:
-  dataServiceCatalogsUri: http://localhost:5000/catalogs
+  dataServiceCatalogsUri: http://localhost:5050/catalogs
