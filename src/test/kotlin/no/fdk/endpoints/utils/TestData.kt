@@ -3,7 +3,7 @@ package no.fdk.endpoints.utils
 import no.fdk.endpoints.model.Endpoint
 import no.fdk.endpoints.model.Environment
 
-const val LOCAL_SERVER_PORT = 5000
+const val LOCAL_SERVER_PORT = 5050
 
 val PROD_0 = Endpoint(
     apiRef = "https://staging.fellesdatakatalog.digdir.no/dataservices/db38e789-51cc-3ff4-b55a-6ec94f6f711d",
