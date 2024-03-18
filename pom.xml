@@ -30,7 +30,7 @@
         <!--end standard properties-->
 
         <kotlin.version>1.9.23</kotlin.version>
-        <jena.version>4.9.0</jena.version>
+        <jena.version>4.10.0</jena.version>
 
     </properties>
 
